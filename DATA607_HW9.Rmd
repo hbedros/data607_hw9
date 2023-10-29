@@ -1,0 +1,74 @@
+---
+title: "DATA607_HW9"
+author: "Haig Bedros"
+date: "2023-10-27"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r nyt_books_api}
+# Load required libraries
+library(httr)
+library(jsonlite)
+library(dplyr)
+library(purrr)
+library(knitr)
+
+# Define the API endpoint and parameters
+api_0 <- "https://api.nytimes.com/svc/books/v3/lists"
+api_1 <- "https://api.nytimes.com/svc/books/v3/lists/full-overview.json"
+list_name <- "hardcover-fiction"
+api_key <- "wMEs6AdyAsihSMvjP2QfYadRq5Wwwt3M"
+date <- "current"
+
+# Create the request URLs, including the 'published-date' parameter set to 'current'
+request_api_0 <- paste0(api_0, "/", date, "/", list_name, ".json?api-key=", api_key)
+request_api_1 <- paste0(api_1, "?list=", list_name, "&api-key=", api_key)
+
+# Make the GET request
+response_0 <- GET(request_api_0)
+response_1 <- GET(request_api_1)
+
+# Parse the response content directly into a JSON list
+json_0_content <- content(response_0, "parsed", encoding = "UTF-8")
+json_1_content <- content(response_1, "parsed", encoding = "UTF-8")
+
+# If you want to capture the books as well in a separate dataframe:
+books_df <- fromJSON(toJSON(json_0_content$results$books), flatten = TRUE)
+books_df_1 <- fromJSON(toJSON(json_1_content$results$lists$books), flatten = TRUE)
+
+# Extract the 'books' data for each 'list'
+books_list <- lapply(json_1_content$results$lists, function(x) {
+  # Check if 'books' is a list and has more than 0 elements
+  if (is.list(x$books) && length(x$books) > 0) {
+    # Try to convert the 'books' data to a data.frame
+    tryCatch({
+      as.data.frame(x$books)
+    }, error = function(e) {
+      # If there's an error, return a data.frame with a note
+      data.frame(note = "Error in conversion", stringsAsFactors = FALSE)
+    })
+  } else {
+    # If 'books' is not a list or has 0 elements, return a data.frame with a note
+    data.frame(note = "No books data", stringsAsFactors = FALSE)
+  }
+})
+
+# Filter out data frames with the error note
+books_list <- lapply(books_list, function(df) {
+  if (!"note" %in% colnames(df)) {
+    return(df)
+  } else {
+    return(NULL)
+  }
+})
+
+# Combine the list of data frames into one data frame
+books_df_1 <- bind_rows(books_list, .id = "id")
+
+head(books_df, n=5)
+head(books_df_1, n=5)
+```

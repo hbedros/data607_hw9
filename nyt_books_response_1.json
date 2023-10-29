@@ -1,0 +1,78 @@
+{
+    "status": "OK",
+    "copyright": "Copyright (c) 2023 The New York Times Company.  All Rights Reserved.",
+    "num_results": 230,
+    "results": {
+        "bestsellers_date": "2023-10-21",
+        "published_date": "2023-11-05",
+        "published_date_description": "latest",
+        "previous_published_date": "2023-10-29",
+        "next_published_date": "",
+        "lists": [
+            {
+                "list_id": 704,
+                "list_name": "Combined Print and E-Book Fiction",
+                "list_name_encoded": "combined-print-and-e-book-fiction",
+                "display_name": "Combined Print & E-Book Fiction",
+                "updated": "WEEKLY",
+                "list_image": null,
+                "list_image_width": null,
+                "list_image_height": null,
+                "books": [
+                    {
+                        "age_group": "",
+                        "amazon_product_url": "https:\/\/www.amazon.com\/dp\/0385548958?tag=NYTBSREV-20",
+                        "article_chapter_link": "",
+                        "author": "John Grisham",
+                        "book_image": "https:\/\/storage.googleapis.com\/du-prd\/books\/images\/9780385548953.jpg",
+                        "book_image_width": 329,
+                        "book_image_height": 500,
+                        "book_review_link": "",
+                        "book_uri": "nyt:\/\/book\/52c31163-754f-58c8-90d8-ea1f297f7030",
+                        "contributor": "by John Grisham",
+                        "contributor_note": "",
+                        "created_date": "2023-10-25 22:20:27",
+                        "description": "In a sequel to \u201cThe Firm,\u201d Mitch McDeere, who is now a partner at the world\u2019s largest law firm, gets caught up in a sinister plot.",
+                        "first_chapter_link": "",
+                        "price": "0.00",
+                        "primary_isbn10": "0385548958",
+                        "primary_isbn13": "9780385548953",
+                        "publisher": "Doubleday",
+                        "rank": 1,
+                        "rank_last_week": 0,
+                        "sunday_review_link": "",
+                        "title": "THE EXCHANGE",
+                        "updated_date": "2023-10-25 22:24:47",
+                        "weeks_on_list": 1,
+                        "buy_links": [
+                            {
+                                "name": "Amazon",
+                                "url": "https:\/\/www.amazon.com\/dp\/0385548958?tag=NYTBSREV-20"
+                            },
+                            {
+                                "name": "Apple Books",
+                                "url": "https:\/\/goto.applebooks.apple\/9780385548953?at=10lIEQ"
+                            },
+                            {
+                                "name": "Barnes and Noble",
+                                "url": "https:\/\/www.anrdoezrs.net\/click-7990613-11819508?url=https%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9780385548953"
+                            },
+                            {
+                                "name": "Books-A-Million",
+                                "url": "https:\/\/www.anrdoezrs.net\/click-7990613-35140?url=https%3A%2F%2Fwww.booksamillion.com%2Fp%2FTHE%2BEXCHANGE%2FJohn%2BGrisham%2F9780385548953"
+                            },
+                            {
+                                "name": "Bookshop",
+                                "url": "https:\/\/bookshop.org\/a\/3546\/9780385548953"
+                            },
+                            {
+                                "name": "IndieBound",
+                                "url": "https:\/\/www.indiebound.org\/book\/9780385548953?aff=NYT"
+                            }
+                        ]
+                    }                       
+                ]
+            }           
+        ]
+    }
+}
